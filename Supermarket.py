@@ -3,7 +3,7 @@ import pandas as pd
 import joblib
 
 # Load trained model
-model = joblib.load("sales_model.pkl")
+model = joblib.load("supermarket.pkl")
 
 st.title("Sales Prediction App")
 
@@ -21,3 +21,4 @@ if st.button("Predict Sales"):
                             columns=["Unit price","Quantity","Tax 5%","cogs","gross margin percentage","gross income"])
     prediction = model.predict(input_df)
     st.success(f"Predicted Sales: {prediction[0]:.2f}")
+
