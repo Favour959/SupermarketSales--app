@@ -31,9 +31,16 @@ hour = purchase_time.hour
 input_df = pd.DataFrame(0, index=[0], columns=model_columns)
 
 # Fill numeric features
-numeric_cols = ["Unit price", "Quantity", "Month", "Hour"]
-for col in numeric_cols:
-    input_df[col.replace("_", " ").title()] = locals()[col]
+# Mapping model column names to the variables
+col_var_map = {
+    "Unit price": unit_price,
+    "Quantity": quantity,
+    "Month": month,
+    "Hour": hour
+}
+
+for col, val in col_var_map.items():
+    input_df[col] = val
     
 # Fill categorical features
 if "Gender_Male" in model_columns and gender == "Male":
@@ -47,6 +54,7 @@ if product_col_name in model_columns:
 if st.button("Predict Sales"):
     prediction = model.predict(input_df)
     st.success(f"Predicted Total Sales: {prediction[0]:.2f}")
+
 
 
 
