@@ -4,7 +4,7 @@ import joblib
 from datetime import date, time
 
 # Load trained model
-model = joblib.load("sales_model.pkl")
+model = joblib.load("supermarket.pkl")
 
 st.title("Supermarket Sales Prediction App")
 st.write("Predict total sales based on purchase details")
@@ -31,3 +31,4 @@ input_df = pd.DataFrame({
 if st.button("Predict Sales"):
     prediction = model.predict(input_df)
     st.success(f"Predicted Total Sales: {prediction[0]:.2f}")
+
