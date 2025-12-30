@@ -16,7 +16,7 @@ st.write("Predict total sales based on purchase details")
 unit_price = st.number_input("Unit Price", min_value=0.0)
 quantity = st.number_input("Quantity", min_value=1, step=1)
 purchase_date = st.date_input("Date of Purchase",  value=date.today())
-purchase_time = st.time_input("Time of Purchase")
+purchase_time = st.time_input("Time of Purchase", value=time(12, 0)))
 gender = st.selectbox("Gender", ["Male", "Female"])
 product_line = st.selectbox(
     "Product Line",
